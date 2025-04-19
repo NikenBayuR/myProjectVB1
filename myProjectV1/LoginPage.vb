@@ -7,13 +7,32 @@ Public Class LoginPage
     Dim sql As String = Nothing
 
     Private Sub LoginPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CenterContent()
         connect.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\PE-D\Documents\dataBaseVbNetV1.accdb;"
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Application.ExitThread()
     End Sub
+    Private Sub btnMaximized_Click(sender As Object, e As EventArgs) Handles btnMaximized.Click
+        If WindowState = FormWindowState.Normal Then
+            WindowState = FormWindowState.Maximized
+        ElseIf WindowState = FormWindowState.Maximized Then
+            WindowState = FormWindowState.Normal
+        End If
+    End Sub
 
+    Private Sub btnMinimized_Click(sender As Object, e As EventArgs) Handles btnMinimized.Click
+        WindowState = FormWindowState.Minimized
+    End Sub
+
+    Private Sub LoginPage_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        CenterContent()
+    End Sub
+    Private Sub CenterContent()
+        panelContent.Left = (Panel2.ClientSize.Width - panelContent.Width) \ 2
+        panelContent.Top = (Panel2.ClientSize.Height - panelContent.Height) \ 2
+    End Sub
     Private Sub LinkRegister_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkRegister.LinkClicked
         RegisterPage.Show()
         Me.Hide()
@@ -58,5 +77,6 @@ Public Class LoginPage
             TextBoxPassword.PasswordChar = "*"
         End If
     End Sub
+
 
 End Class
