@@ -7,6 +7,7 @@ Public Class LoginPage
     Dim sql As String = Nothing
 
     Private Sub LoginPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.WindowState = FormWindowState.Maximized
         CenterContent()
         connect.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\PE-D\Documents\dataBaseVbNetV1.accdb;"
     End Sub
@@ -59,6 +60,7 @@ Public Class LoginPage
                 'handel alert ketika pasword diisi benar dan salah 
                 'then Sucessfully Login
                 MessageBox.Show("Sucessfuly Login", "Information Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                LandingPage.WindowState = Me.WindowState
                 LandingPage.Show()
                 Me.Hide()
             Else
@@ -78,7 +80,4 @@ Public Class LoginPage
         End If
     End Sub
 
-    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
-
-    End Sub
 End Class

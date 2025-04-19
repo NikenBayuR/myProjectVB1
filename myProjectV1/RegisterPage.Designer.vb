@@ -116,7 +116,7 @@ Partial Class RegisterPage
         btnClose.Name = "btnClose"
         btnClose.Size = New Size(40, 45)
         btnClose.TabIndex = 0
-        btnClose.Text = "X"
+        btnClose.Text = "x"
         btnClose.UseVisualStyleBackColor = False
         ' 
         ' panelContent

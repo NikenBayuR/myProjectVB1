@@ -7,6 +7,7 @@ Public Class RegisterPage
 
 
     Private Sub RegisterPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.WindowState = FormWindowState.Maximized
         CenterContent()
         connect.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\PE-D\Documents\dataBaseVbNetV1.accdb;"
     End Sub
@@ -35,6 +36,7 @@ Public Class RegisterPage
         panelContent.Top = (Panel2.ClientSize.Height - panelContent.Height) \ 2
     End Sub
     Private Sub LinkRegister_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkRegister.LinkClicked
+        LoginPage.WindowState = Me.WindowState
         LoginPage.Show()
         Me.Hide()
     End Sub
@@ -87,4 +89,7 @@ Public Class RegisterPage
         End If
     End Sub
 
+    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
+
+    End Sub
 End Class
