@@ -2,6 +2,7 @@
 Imports System.Data
 
 Public Class LoginPage
+    'HANDLE CONNECTION TO DATABASE.
     Dim connect As New OleDbConnection
     Dim command As OleDbCommand
     Dim sql As String = Nothing
@@ -12,6 +13,9 @@ Public Class LoginPage
         connect.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\PE-D\Documents\dataBaseVbNetV1.accdb;"
     End Sub
 
+
+
+    'HANDLE BUTTON CLOSE, MAXIMIZED, MINIMIZED.
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         Application.ExitThread()
     End Sub
@@ -27,6 +31,9 @@ Public Class LoginPage
         WindowState = FormWindowState.Minimized
     End Sub
 
+
+
+    'HANDLE DRAG FORM.
     Private Sub LoginPage_Resize(sender As Object, e As EventArgs) Handles Me.Resize
         CenterContent()
     End Sub
@@ -34,10 +41,16 @@ Public Class LoginPage
         panelContent.Left = (Panel2.ClientSize.Width - panelContent.Width) \ 2
         panelContent.Top = (Panel2.ClientSize.Height - panelContent.Height) \ 2
     End Sub
+
+
+
+    'HANDLE BUTTON REGISTER
     Private Sub LinkRegister_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkRegister.LinkClicked
         RegisterPage.Show()
         Me.Hide()
     End Sub
+
+
 
     'HANDLE FORM LOGIN.
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
@@ -70,6 +83,9 @@ Public Class LoginPage
 
         End If
     End Sub
+
+
+
 
     'HANDLE SHOW PASSWORD.
     Private Sub CheckBoxShowPass_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxShowPass.CheckedChanged

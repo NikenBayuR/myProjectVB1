@@ -23,6 +23,7 @@ Partial Class LandingPage
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LandingPage))
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         panelNavbar = New Panel()
         btnMaximized = New Button()
@@ -33,6 +34,21 @@ Partial Class LandingPage
         dash_username = New Label()
         panelBackground = New Panel()
         panelContent = New Panel()
+        DataGridView1 = New DataGridView()
+        Column1 = New DataGridViewTextBoxColumn()
+        Column2 = New DataGridViewTextBoxColumn()
+        Column3 = New DataGridViewTextBoxColumn()
+        Column4 = New DataGridViewTextBoxColumn()
+        Column5 = New DataGridViewTextBoxColumn()
+        Column6 = New DataGridViewTextBoxColumn()
+        Column7 = New DataGridViewTextBoxColumn()
+        Column8 = New DataGridViewTextBoxColumn()
+        Column9 = New DataGridViewTextBoxColumn()
+        Column10 = New DataGridViewTextBoxColumn()
+        Column11 = New DataGridViewTextBoxColumn()
+        Column12 = New DataGridViewTextBoxColumn()
+        Column13 = New DataGridViewTextBoxColumn()
+        ComboBoxJenisKelamin = New ComboBox()
         ButtonClearForm = New Button()
         ButtonUpdate = New Button()
         ButtonDelete = New Button()
@@ -60,26 +76,12 @@ Partial Class LandingPage
         LabeAlamat = New Label()
         TextBoxAlamat = New TextBox()
         LabelJenisKelamin = New Label()
-        TextBoxJenisKelamin = New TextBox()
         LabelTempatLahir = New Label()
         TextBoxTempatLahir = New TextBox()
         LabelNama = New Label()
         TextBoxNama = New TextBox()
         LabelNIK = New Label()
-        TextBoxNIK = New TextBox()
-        DataGridView1 = New DataGridView()
-        Column1 = New DataGridViewTextBoxColumn()
-        Column2 = New DataGridViewTextBoxColumn()
-        Column12 = New DataGridViewTextBoxColumn()
-        Column3 = New DataGridViewTextBoxColumn()
-        Column4 = New DataGridViewTextBoxColumn()
-        Column5 = New DataGridViewTextBoxColumn()
-        Column6 = New DataGridViewTextBoxColumn()
-        Column7 = New DataGridViewTextBoxColumn()
-        Column8 = New DataGridViewTextBoxColumn()
-        Column9 = New DataGridViewTextBoxColumn()
-        Column10 = New DataGridViewTextBoxColumn()
-        Column11 = New DataGridViewTextBoxColumn()
+        TextBoxNik = New TextBox()
         panelNavbar.SuspendLayout()
         panelBackground.SuspendLayout()
         panelContent.SuspendLayout()
@@ -209,6 +211,8 @@ Partial Class LandingPage
         ' 
         panelContent.BackColor = Color.Transparent
         panelContent.BorderStyle = BorderStyle.FixedSingle
+        panelContent.Controls.Add(DataGridView1)
+        panelContent.Controls.Add(ComboBoxJenisKelamin)
         panelContent.Controls.Add(ButtonClearForm)
         panelContent.Controls.Add(ButtonUpdate)
         panelContent.Controls.Add(ButtonDelete)
@@ -236,19 +240,176 @@ Partial Class LandingPage
         panelContent.Controls.Add(LabeAlamat)
         panelContent.Controls.Add(TextBoxAlamat)
         panelContent.Controls.Add(LabelJenisKelamin)
-        panelContent.Controls.Add(TextBoxJenisKelamin)
         panelContent.Controls.Add(LabelTempatLahir)
         panelContent.Controls.Add(TextBoxTempatLahir)
         panelContent.Controls.Add(LabelNama)
         panelContent.Controls.Add(TextBoxNama)
         panelContent.Controls.Add(LabelNIK)
-        panelContent.Controls.Add(TextBoxNIK)
-        panelContent.Controls.Add(DataGridView1)
+        panelContent.Controls.Add(TextBoxNik)
         panelContent.Dock = DockStyle.Fill
         panelContent.Location = New Point(0, 0)
         panelContent.Name = "panelContent"
         panelContent.Size = New Size(1500, 763)
         panelContent.TabIndex = 0
+        ' 
+        ' DataGridView1
+        ' 
+        DataGridView1.AllowUserToAddRows = False
+        DataGridView1.AllowUserToDeleteRows = False
+        DataGridView1.BackgroundColor = Color.White
+        DataGridView1.BorderStyle = BorderStyle.None
+        DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = Color.White
+        DataGridViewCellStyle1.Font = New Font("Segoe UI", 10F)
+        DataGridViewCellStyle1.ForeColor = Color.DimGray
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.ControlDark
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10, Column11, Column12, Column13})
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = SystemColors.Window
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 10F)
+        DataGridViewCellStyle2.ForeColor = Color.DimGray
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.ControlDark
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
+        DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridView1.Location = New Point(-1, 551)
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.ReadOnly = True
+        DataGridView1.RowHeadersVisible = False
+        DataGridView1.RowHeadersWidth = 62
+        DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        DataGridView1.Size = New Size(1496, 211)
+        DataGridView1.TabIndex = 47
+        ' 
+        ' Column1
+        ' 
+        Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column1.HeaderText = "ID"
+        Column1.MinimumWidth = 8
+        Column1.Name = "Column1"
+        Column1.ReadOnly = True
+        Column1.Width = 67
+        ' 
+        ' Column2
+        ' 
+        Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column2.HeaderText = "Nik"
+        Column2.MinimumWidth = 8
+        Column2.Name = "Column2"
+        Column2.ReadOnly = True
+        Column2.Width = 78
+        ' 
+        ' Column3
+        ' 
+        Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column3.HeaderText = "Nama"
+        Column3.MinimumWidth = 8
+        Column3.Name = "Column3"
+        Column3.ReadOnly = True
+        ' 
+        ' Column4
+        ' 
+        Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column4.HeaderText = "Tempat Lahir"
+        Column4.MinimumWidth = 8
+        Column4.Name = "Column4"
+        Column4.ReadOnly = True
+        Column4.Width = 159
+        ' 
+        ' Column5
+        ' 
+        Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column5.HeaderText = "Tanggal Lahir"
+        Column5.MinimumWidth = 8
+        Column5.Name = "Column5"
+        Column5.ReadOnly = True
+        Column5.Width = 163
+        ' 
+        ' Column6
+        ' 
+        Column6.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column6.HeaderText = "Jenis Kelamin"
+        Column6.MinimumWidth = 8
+        Column6.Name = "Column6"
+        Column6.ReadOnly = True
+        Column6.Width = 164
+        ' 
+        ' Column7
+        ' 
+        Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column7.HeaderText = "Alamat"
+        Column7.MinimumWidth = 8
+        Column7.Name = "Column7"
+        Column7.ReadOnly = True
+        Column7.Width = 110
+        ' 
+        ' Column8
+        ' 
+        Column8.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column8.HeaderText = "Rt/Rw"
+        Column8.MinimumWidth = 8
+        Column8.Name = "Column8"
+        Column8.ReadOnly = True
+        Column8.Width = 101
+        ' 
+        ' Column9
+        ' 
+        Column9.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column9.HeaderText = "Kelurahan"
+        Column9.MinimumWidth = 8
+        Column9.Name = "Column9"
+        Column9.ReadOnly = True
+        Column9.Width = 135
+        ' 
+        ' Column10
+        ' 
+        Column10.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column10.HeaderText = "Kecamatan"
+        Column10.MinimumWidth = 8
+        Column10.Name = "Column10"
+        Column10.ReadOnly = True
+        Column10.Width = 144
+        ' 
+        ' Column11
+        ' 
+        Column11.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column11.HeaderText = "Agama"
+        Column11.MinimumWidth = 8
+        Column11.Name = "Column11"
+        Column11.ReadOnly = True
+        Column11.Width = 110
+        ' 
+        ' Column12
+        ' 
+        Column12.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column12.HeaderText = "Status Kawin"
+        Column12.MinimumWidth = 8
+        Column12.Name = "Column12"
+        Column12.ReadOnly = True
+        Column12.Width = 158
+        ' 
+        ' Column13
+        ' 
+        Column13.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        Column13.HeaderText = "Pekerjaan"
+        Column13.MinimumWidth = 8
+        Column13.Name = "Column13"
+        Column13.ReadOnly = True
+        Column13.Width = 131
+        ' 
+        ' ComboBoxJenisKelamin
+        ' 
+        ComboBoxJenisKelamin.FormattingEnabled = True
+        ComboBoxJenisKelamin.Items.AddRange(New Object() {"Laki Laki", "Perempuan"})
+        ComboBoxJenisKelamin.Location = New Point(199, 249)
+        ComboBoxJenisKelamin.Name = "ComboBoxJenisKelamin"
+        ComboBoxJenisKelamin.Size = New Size(298, 33)
+        ComboBoxJenisKelamin.TabIndex = 46
         ' 
         ' ButtonClearForm
         ' 
@@ -356,8 +517,9 @@ Partial Class LandingPage
         TextBoxID.ForeColor = Color.Sienna
         TextBoxID.Location = New Point(1169, 35)
         TextBoxID.Name = "TextBoxID"
-        TextBoxID.Size = New Size(75, 30)
+        TextBoxID.Size = New Size(176, 30)
         TextBoxID.TabIndex = 31
+        TextBoxID.Text = "[ AUTO INCREMENT ]"
         ' 
         ' DateTimePicker1
         ' 
@@ -369,6 +531,7 @@ Partial Class LandingPage
         ' ComboBoxPekerjaan
         ' 
         ComboBoxPekerjaan.FormattingEnabled = True
+        ComboBoxPekerjaan.Items.AddRange(New Object() {"Guru", "Dosen", "Dokter", "Wirausaha", "Wiraswasta", "Pelajar/Mahasiswa", "PNS (Pegawai Negeri Sipil)", "Membantu Rumah Tangga", "Polri (Polisi Republik Indonesia)", "TNI (Tentara Nasional Indonesia)", ""})
         ComboBoxPekerjaan.Location = New Point(800, 304)
         ComboBoxPekerjaan.Name = "ComboBoxPekerjaan"
         ComboBoxPekerjaan.Size = New Size(298, 33)
@@ -377,6 +540,7 @@ Partial Class LandingPage
         ' ComboBoxStatusKawin
         ' 
         ComboBoxStatusKawin.FormattingEnabled = True
+        ComboBoxStatusKawin.Items.AddRange(New Object() {"Belum Kawin", "Sudah Kawin", "Duda", "Janda"})
         ComboBoxStatusKawin.Location = New Point(800, 243)
         ComboBoxStatusKawin.Name = "ComboBoxStatusKawin"
         ComboBoxStatusKawin.Size = New Size(196, 33)
@@ -385,6 +549,7 @@ Partial Class LandingPage
         ' ComboBoxAgama
         ' 
         ComboBoxAgama.FormattingEnabled = True
+        ComboBoxAgama.Items.AddRange(New Object() {"Islam", "Hindu", "Buddha", "Konghucu", "Kristen katolik", "Kristen Protestan"})
         ComboBoxAgama.Location = New Point(800, 193)
         ComboBoxAgama.Name = "ComboBoxAgama"
         ComboBoxAgama.Size = New Size(196, 33)
@@ -534,15 +699,6 @@ Partial Class LandingPage
         LabelJenisKelamin.TabIndex = 14
         LabelJenisKelamin.Text = "JENIS KELAMIN"
         ' 
-        ' TextBoxJenisKelamin
-        ' 
-        TextBoxJenisKelamin.Font = New Font("Arial Narrow", 10F, FontStyle.Bold)
-        TextBoxJenisKelamin.ForeColor = Color.Sienna
-        TextBoxJenisKelamin.Location = New Point(199, 249)
-        TextBoxJenisKelamin.Name = "TextBoxJenisKelamin"
-        TextBoxJenisKelamin.Size = New Size(298, 30)
-        TextBoxJenisKelamin.TabIndex = 13
-        ' 
         ' LabelTempatLahir
         ' 
         LabelTempatLahir.AutoSize = True
@@ -597,147 +753,14 @@ Partial Class LandingPage
         LabelNIK.TabIndex = 8
         LabelNIK.Text = "NIK"
         ' 
-        ' TextBoxNIK
+        ' TextBoxNik
         ' 
-        TextBoxNIK.Font = New Font("Arial Narrow", 10F, FontStyle.Bold)
-        TextBoxNIK.ForeColor = Color.Sienna
-        TextBoxNIK.Location = New Point(199, 32)
-        TextBoxNIK.Name = "TextBoxNIK"
-        TextBoxNIK.Size = New Size(298, 30)
-        TextBoxNIK.TabIndex = 7
-        ' 
-        ' DataGridView1
-        ' 
-        DataGridView1.AllowUserToAddRows = False
-        DataGridView1.AllowUserToDeleteRows = False
-        DataGridView1.BackgroundColor = Color.White
-        DataGridView1.BorderStyle = BorderStyle.None
-        DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = SystemColors.Control
-        DataGridViewCellStyle2.Font = New Font("Arial Narrow", 10F, FontStyle.Bold)
-        DataGridViewCellStyle2.ForeColor = SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridView1.Columns.AddRange(New DataGridViewColumn() {Column1, Column2, Column12, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10, Column11})
-        DataGridView1.Dock = DockStyle.Bottom
-        DataGridView1.Location = New Point(0, 527)
-        DataGridView1.Name = "DataGridView1"
-        DataGridView1.ReadOnly = True
-        DataGridView1.RowHeadersVisible = False
-        DataGridView1.RowHeadersWidth = 62
-        DataGridView1.Size = New Size(1498, 234)
-        DataGridView1.TabIndex = 0
-        ' 
-        ' Column1
-        ' 
-        Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column1.HeaderText = "ID"
-        Column1.MinimumWidth = 8
-        Column1.Name = "Column1"
-        Column1.ReadOnly = True
-        Column1.Width = 62
-        ' 
-        ' Column2
-        ' 
-        Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column2.HeaderText = "NIK"
-        Column2.MinimumWidth = 8
-        Column2.Name = "Column2"
-        Column2.ReadOnly = True
-        Column2.Width = 74
-        ' 
-        ' Column12
-        ' 
-        Column12.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column12.HeaderText = "NAMA"
-        Column12.MinimumWidth = 8
-        Column12.Name = "Column12"
-        Column12.ReadOnly = True
-        Column12.Width = 94
-        ' 
-        ' Column3
-        ' 
-        Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column3.HeaderText = "TEMPAT LAHIR"
-        Column3.MinimumWidth = 8
-        Column3.Name = "Column3"
-        Column3.ReadOnly = True
-        Column3.Width = 167
-        ' 
-        ' Column4
-        ' 
-        Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column4.HeaderText = "TANGGAL LAHIR"
-        Column4.MinimumWidth = 8
-        Column4.Name = "Column4"
-        Column4.ReadOnly = True
-        Column4.Width = 165
-        ' 
-        ' Column5
-        ' 
-        Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column5.HeaderText = "JENIS KELAMIN"
-        Column5.MinimumWidth = 8
-        Column5.Name = "Column5"
-        Column5.ReadOnly = True
-        Column5.Width = 158
-        ' 
-        ' Column6
-        ' 
-        Column6.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column6.HeaderText = "ALAMAT"
-        Column6.MinimumWidth = 8
-        Column6.Name = "Column6"
-        Column6.ReadOnly = True
-        Column6.Width = 113
-        ' 
-        ' Column7
-        ' 
-        Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column7.HeaderText = "RT/RW"
-        Column7.MinimumWidth = 8
-        Column7.Name = "Column7"
-        Column7.ReadOnly = True
-        ' 
-        ' Column8
-        ' 
-        Column8.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column8.HeaderText = "KELURAHAN"
-        Column8.MinimumWidth = 8
-        Column8.Name = "Column8"
-        Column8.ReadOnly = True
-        Column8.Width = 149
-        ' 
-        ' Column9
-        ' 
-        Column9.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column9.HeaderText = "AGAMA"
-        Column9.MinimumWidth = 8
-        Column9.Name = "Column9"
-        Column9.ReadOnly = True
-        Column9.Width = 106
-        ' 
-        ' Column10
-        ' 
-        Column10.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column10.HeaderText = "STATUS KAWIN"
-        Column10.MinimumWidth = 8
-        Column10.Name = "Column10"
-        Column10.ReadOnly = True
-        Column10.Width = 156
-        ' 
-        ' Column11
-        ' 
-        Column11.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        Column11.HeaderText = "PEKERJAAN"
-        Column11.MinimumWidth = 8
-        Column11.Name = "Column11"
-        Column11.ReadOnly = True
-        Column11.Width = 146
+        TextBoxNik.Font = New Font("Arial Narrow", 10F, FontStyle.Bold)
+        TextBoxNik.ForeColor = Color.Sienna
+        TextBoxNik.Location = New Point(199, 32)
+        TextBoxNik.Name = "TextBoxNik"
+        TextBoxNik.Size = New Size(298, 30)
+        TextBoxNik.TabIndex = 7
         ' 
         ' LandingPage
         ' 
@@ -769,7 +792,6 @@ Partial Class LandingPage
     Friend WithEvents btnMinimized As Button
     Friend WithEvents panelBackground As Panel
     Friend WithEvents panelContent As Panel
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents ComboBoxStatusKawin As ComboBox
     Friend WithEvents ComboBoxAgama As ComboBox
     Friend WithEvents LabelStatusKawin As Label
@@ -785,13 +807,12 @@ Partial Class LandingPage
     Friend WithEvents LabeAlamat As Label
     Friend WithEvents TextBoxAlamat As TextBox
     Friend WithEvents LabelJenisKelamin As Label
-    Friend WithEvents TextBoxJenisKelamin As TextBox
     Friend WithEvents LabelTempatLahir As Label
     Friend WithEvents TextBoxTempatLahir As TextBox
     Friend WithEvents LabelNama As Label
     Friend WithEvents TextBoxNama As TextBox
     Friend WithEvents LabelNIK As Label
-    Friend WithEvents TextBoxNIK As TextBox
+    Friend WithEvents TextBoxNik As TextBox
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents ComboBoxPekerjaan As ComboBox
     Friend WithEvents LabelID As Label
@@ -804,9 +825,10 @@ Partial Class LandingPage
     Friend WithEvents ButtonCreate As Button
     Friend WithEvents ButtonClearForm As Button
     Friend WithEvents LabelConnection As Label
+    Friend WithEvents ComboBoxJenisKelamin As ComboBox
+    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column12 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
@@ -816,4 +838,6 @@ Partial Class LandingPage
     Friend WithEvents Column9 As DataGridViewTextBoxColumn
     Friend WithEvents Column10 As DataGridViewTextBoxColumn
     Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
 End Class

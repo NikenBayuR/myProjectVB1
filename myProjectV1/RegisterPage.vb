@@ -1,6 +1,8 @@
 ﻿Imports System.Data.OleDb
 Imports System.Data
 Public Class RegisterPage
+
+    'HANDLE CONNECTION TO DATABASE
     Dim connect As New OleDbConnection
     Dim command As OleDbCommand
     Dim sql As String = Nothing
@@ -12,8 +14,11 @@ Public Class RegisterPage
         connect.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\PE-D\Documents\dataBaseVbNetV1.accdb;"
     End Sub
 
+
+
+    'HANDLE BUTTONS MINIMIZED MAXIMIZED
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        Application.ExitThread
+        Application.ExitThread()
     End Sub
 
     Private Sub btnMaximized_Click(sender As Object, e As EventArgs) Handles btnMaximized.Click
@@ -28,6 +33,9 @@ Public Class RegisterPage
         WindowState = FormWindowState.Minimized
     End Sub
 
+
+
+    'HANDLE DRAG FORM
     Private Sub RegisterPage_Resize(sender As Object, e As EventArgs) Handles Me.Resize
         CenterContent()
     End Sub
@@ -35,12 +43,17 @@ Public Class RegisterPage
         panelContent.Left = (Panel2.ClientSize.Width - panelContent.Width) \ 2
         panelContent.Top = (Panel2.ClientSize.Height - panelContent.Height) \ 2
     End Sub
+
+
+    'HANDLE BUTTON BACK TO LOGIN
     Private Sub LinkRegister_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkRegister.LinkClicked
         LoginPage.WindowState = Me.WindowState
         LoginPage.Show()
         Me.Hide()
     End Sub
 
+
+    'HANDLE BUTTON REGISTER
     Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
         If connect.State = ConnectionState.Closed Then
             connect.Open()
@@ -81,15 +94,14 @@ Public Class RegisterPage
 
     End Sub
 
+
+
+    'HANDLE CHECKBOX SHOW PASSWORD
     Private Sub CheckBoxShowPass_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxShowPass.CheckedChanged
         If CheckBoxShowPass.Checked = True Then
             suPassword.PasswordChar = ""
         Else
             suPassword.PasswordChar = "*"
         End If
-    End Sub
-
-    Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
-
     End Sub
 End Class
