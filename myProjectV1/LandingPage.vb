@@ -9,8 +9,6 @@ Public Class LandingPage
     Dim dr As OleDbDataReader
     Dim i As Integer
 
-
-
     Private Sub LandingPage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.WindowState = FormWindowState.Maximized
         displayUser()
@@ -132,7 +130,7 @@ Public Class LandingPage
 
     'HANDLE BUTTON CREATE
     Sub create()
-
+        If Not validateForm() Then Exit Sub
         Try
             conn.Open()
             If MsgBox("Are You Sure Insert This Record", vbQuestion + vbYesNo) = vbYes Then
@@ -223,6 +221,7 @@ Public Class LandingPage
 
     'HANDLE BUTTON UPDATE
     Sub edit()
+        If Not validateForm() Then Exit Sub
         Try
             conn.Open()
             Dim cmd As New OleDb.OleDbCommand("Update CURD SET `Nik`=@Nik,`Nama`=@Nama,`TempatLahir`=@TempatLahir,`TanggalLahir`=@TanggalLahir,`JenisKelamin`=@JenisKelamin,`Alamat`=@Alamat,
@@ -295,5 +294,124 @@ Public Class LandingPage
 
     Private Sub TextBoxSearch_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSearch.TextChanged
         search()
+    End Sub
+
+
+    Private Sub TextBoxNama_TextChanged(sender As Object, e As EventArgs) Handles TextBoxNama.TextChanged
+        Dim namaValid As String = ""
+        For Each ch As Char In TextBoxNama.Text
+            If Char.IsLetter(ch) Or ch = " "c Then
+                namaValid &= ch
+            End If
+        Next
+
+        If TextBoxNama.Text <> namaValid Then
+            MsgBox("Nama hanya boleh berisi huruf!", vbExclamation)
+            TextBoxNama.Text = namaValid
+            TextBoxNama.SelectionStart = TextBoxNama.Text.Length ' supaya kursor tetap di akhir
+        End If
+    End Sub
+
+
+
+
+
+    Private Sub TextBoxNik_TextChanged(sender As Object, e As EventArgs) Handles TextBoxNik.TextChanged
+        ' Cek kalau user ngetik karakter non-angka
+        If Not IsNumeric(TextBoxNik.Text) AndAlso TextBoxNik.Text <> "" Then
+            MsgBox("NIK hanya boleh berisi angka dan Hanya 16 digit angka!", vbExclamation)
+            TextBoxNik.Clear()
+        End If
+
+        ' Validasi panjang NIK
+        If TextBoxNik.Text.Length > 16 Then
+            MsgBox("NIK tidak boleh lebih dari 16 digit!", vbExclamation)
+            TextBoxNik.Text = TextBoxNik.Text.Substring(0, 16)
+        End If
+    End Sub
+
+    Private Sub TextBoxRtRw_TextChanged(sender As Object, e As EventArgs) Handles TextBoxRtRw.TextChanged
+        ' Cek kalau user ngetik karakter non-angka
+        If Not IsNumeric(TextBoxRtRw.Text) AndAlso TextBoxRtRw.Text <> "" Then
+            MsgBox("Rt/Rw hanya boleh berisi angka!", vbExclamation)
+            TextBoxRtRw.Clear()
+        End If
+
+        ' Validasi panjang NIK
+        If TextBoxRtRw.Text.Length > 6 Then
+            MsgBox("RtRw tidak boleh lebih dari 6 digit!", vbExclamation)
+            TextBoxRtRw.Text = TextBoxRtRw.Text.Substring(0, 6)
+        End If
+    End Sub
+
+
+    Function validateForm() As Boolean
+        ' Validasi TextBox
+        If String.IsNullOrWhiteSpace(TextBoxNik.Text) OrElse
+       String.IsNullOrWhiteSpace(TextBoxNama.Text) OrElse
+       String.IsNullOrWhiteSpace(TextBoxTempatLahir.Text) OrElse
+       String.IsNullOrWhiteSpace(TextBoxAlamat.Text) OrElse
+       String.IsNullOrWhiteSpace(TextBoxRtRw.Text) OrElse
+       String.IsNullOrWhiteSpace(TextBoxKelurahanDesa.Text) OrElse
+       String.IsNullOrWhiteSpace(TextBoxKecamatan.Text) Then
+
+            MsgBox("Semua field teks harus diisi!", vbExclamation)
+            Return False
+        End If
+
+        ' Validasi ComboBox
+        If ComboBoxJenisKelamin.SelectedIndex = -1 OrElse
+       ComboBoxAgama.SelectedIndex = -1 OrElse
+       ComboBoxStatusKawin.SelectedIndex = -1 OrElse
+       ComboBoxPekerjaan.SelectedIndex = -1 Then
+
+            MsgBox("Silakan pilih semua opsi yang tersedia di ComboBox!", vbExclamation)
+            Return False
+        End If
+
+        Return True
+    End Function
+
+    Private Sub TextBoxKelurahanDesa_TextChanged(sender As Object, e As EventArgs) Handles TextBoxKelurahanDesa.TextChanged
+        Dim namaKelurahanValid As String = ""
+        For Each ch As Char In TextBoxKelurahanDesa.Text
+            If Char.IsLetter(ch) Or ch = " "c Then
+                namaKelurahanValid &= ch
+            End If
+        Next
+
+        If TextBoxKelurahanDesa.Text <> namaKelurahanValid Then
+            MsgBox("Nama Kelurahan hanya boleh berisi huruf!", vbExclamation)
+            TextBoxKelurahanDesa.Text = namaKelurahanValid
+            TextBoxKelurahanDesa.SelectionStart = TextBoxKelurahanDesa.Text.Length ' supaya kursor tetap di akhir
+        End If
+    End Sub
+
+    Private Sub TextBoxKecamatan_TextChanged(sender As Object, e As EventArgs) Handles TextBoxKecamatan.TextChanged
+        Dim namaKecamatanValid As String = ""
+        For Each ch As Char In TextBoxKecamatan.Text
+            If Char.IsLetter(ch) Or ch = " "c Then
+                namaKecamatanValid &= ch
+            End If
+        Next
+        If TextBoxKecamatan.Text <> namaKecamatanValid Then
+            MsgBox("Nama Kecamatan hanya boleh berisi huruf!", vbExclamation)
+            TextBoxKecamatan.Text = namaKecamatanValid
+            TextBoxKecamatan.SelectionStart = TextBoxKecamatan.Text.Length ' supaya kursor tetap di akhir
+        End If
+    End Sub
+
+    Private Sub TextBoxTempatLahir_TextChanged(sender As Object, e As EventArgs) Handles TextBoxTempatLahir.TextChanged
+        Dim TempatLahirValid As String = ""
+        For Each ch As Char In TextBoxTempatLahir.Text
+            If Char.IsLetter(ch) Or ch = " "c Then
+                TempatLahirValid &= ch
+            End If
+        Next
+        If TextBoxTempatLahir.Text <> TempatLahirValid Then
+            MsgBox(" Nama Tempat Lahir hanya boleh berisi huruf!", vbExclamation)
+            TextBoxTempatLahir.Text = TempatLahirValid
+            TextBoxTempatLahir.SelectionStart = TextBoxTempatLahir.Text.Length ' supaya kursor tetap di akhir
+        End If
     End Sub
 End Class

@@ -26,6 +26,7 @@ Partial Class LandingPage
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         panelNavbar = New Panel()
+        LabelJudul = New Label()
         btnMaximized = New Button()
         btnMinimized = New Button()
         txtWelcome = New Label()
@@ -91,6 +92,7 @@ Partial Class LandingPage
         ' panelNavbar
         ' 
         panelNavbar.BackColor = Color.Brown
+        panelNavbar.Controls.Add(LabelJudul)
         panelNavbar.Controls.Add(btnMaximized)
         panelNavbar.Controls.Add(btnMinimized)
         panelNavbar.Controls.Add(txtWelcome)
@@ -102,6 +104,19 @@ Partial Class LandingPage
         panelNavbar.Name = "panelNavbar"
         panelNavbar.Size = New Size(1500, 83)
         panelNavbar.TabIndex = 0
+        ' 
+        ' LabelJudul
+        ' 
+        LabelJudul.Anchor = AnchorStyles.Top Or AnchorStyles.Left Or AnchorStyles.Right
+        LabelJudul.AutoSize = True
+        LabelJudul.BackColor = Color.Transparent
+        LabelJudul.Font = New Font("Britannic Bold", 17F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        LabelJudul.ForeColor = Color.Silver
+        LabelJudul.Location = New Point(524, 23)
+        LabelJudul.Name = "LabelJudul"
+        LabelJudul.Size = New Size(498, 37)
+        LabelJudul.TabIndex = 6
+        LabelJudul.Text = "WARGA DESA KAMPUNG SONDOL"
         ' 
         ' btnMaximized
         ' 
@@ -191,9 +206,8 @@ Partial Class LandingPage
         dash_username.ForeColor = Color.Silver
         dash_username.Location = New Point(149, 29)
         dash_username.Name = "dash_username"
-        dash_username.Size = New Size(101, 37)
+        dash_username.Size = New Size(0, 37)
         dash_username.TabIndex = 0
-        dash_username.Text = "Niken"
         ' 
         ' panelBackground
         ' 
@@ -840,4 +854,5 @@ Partial Class LandingPage
     Friend WithEvents Column11 As DataGridViewTextBoxColumn
     Friend WithEvents Column12 As DataGridViewTextBoxColumn
     Friend WithEvents Column13 As DataGridViewTextBoxColumn
+    Friend WithEvents LabelJudul As Label
 End Class
