@@ -314,7 +314,7 @@ Public Class LandingPage
 
 
 
-
+    'VALIDATE 
 
     Private Sub TextBoxNik_TextChanged(sender As Object, e As EventArgs) Handles TextBoxNik.TextChanged
         ' Cek kalau user ngetik karakter non-angka

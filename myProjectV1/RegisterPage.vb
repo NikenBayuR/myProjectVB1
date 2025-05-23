@@ -61,6 +61,13 @@ Public Class RegisterPage
 
         If suUsername.Text = Nothing Or suPassword.Text = Nothing Then
             MessageBox.Show("please fill all blank fields", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        ElseIf suUsername.Text.Length < 5 Then
+            MessageBox.Show("USERNAME MINIMAL PANJANG 5 KARAKTER ", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+
+        ElseIf suPassword.Text.Length < 5 Then
+            MessageBox.Show("PASSWORD MINIMAL PANJANG 5 KARAKTER", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+
         Else
             Dim checkData As String = "SELECT * FROM admin WHERE username = '" & suUsername.Text & "'"
 
@@ -71,6 +78,7 @@ Public Class RegisterPage
                 MessageBox.Show("Username: " & suUsername.Text & " is already axist!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 suUsername.Clear()
                 suPassword.Clear()
+
             Else
                 sql = "INSERT INTO admin ([username],[password]) VALUES (?,?)"
                 command = New OleDbCommand(sql, connect)
@@ -103,5 +111,9 @@ Public Class RegisterPage
         Else
             suPassword.PasswordChar = "*"
         End If
+    End Sub
+
+    Private Sub suUsername_TextChanged(sender As Object, e As EventArgs) Handles suUsername.TextChanged
+
     End Sub
 End Class
